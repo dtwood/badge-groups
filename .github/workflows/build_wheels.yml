@@ -10,6 +10,12 @@ jobs:
 
       - uses: hynek/build-and-inspect-python-package@v2
 
+      - name: Generate SBOM
+        uses: anchore/sbom-action@v0
+        with:
+          format: 'cyclonedx-json'
+          output-file: 'sbom.cyclonedx.json'
+
   test:
     runs-on: ubuntu-latest
     steps:
@@ -31,6 +37,16 @@ jobs:
         with:
           name: Packages
           path: dist
+      - uses: actions/download-artifact@v5
+        with:
+          name: badge-groups-dist.cyclonedx.json
+
+      - name: Attest
+        uses: actions/attest-sbom@v3
+        id: attest
+        with:
+          subject-path: dist/*
+          sbom-path: 'badge-groups-dist.cyclonedx.json'
 
       - uses: actions/attest-build-provenance@v3
         with:
