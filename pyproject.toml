@@ -1,6 +1,8 @@
 [project]
 name = "badge-groups"
 version = "0"
+description = "TODO"
+readme = "README.md"
 authors = [
     { name = "David Wood", email = "code@dtwood.co.uk" }
 ]
@@ -15,3 +17,8 @@ badge-groups = "badge_groups.assign:main"
 [build-system]
 requires = ["hatchling>=1.26"]
 build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+]
