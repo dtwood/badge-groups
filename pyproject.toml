@@ -1,6 +1,5 @@
 [project]
 name = "badge-groups"
-version = "0"
 description = "TODO"
 readme = "README.md"
 authors = [
@@ -10,15 +9,19 @@ requires-python = ">=3.12"
 dependencies = [
     "pulp>=3.3.0",
 ]
-
-[project.scripts]
-badge-groups = "badge_groups.assign:main"
-
-[build-system]
-requires = ["hatchling>=1.26"]
-build-backend = "hatchling.build"
+dynamic = ["version"]
 
 [dependency-groups]
 dev = [
     "pytest>=8.4.2",
 ]
+
+[project.scripts]
+badge-groups = "badge_groups.assign:main"
+
+[build-system]
+requires = ["hatchling>=1.26", "hatch-vcs>=0.5"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"

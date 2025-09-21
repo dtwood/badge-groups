@@ -4,7 +4,6 @@ requires-python = ">=3.12"
 
 [[package]]
 name = "badge-groups"
-version = "0"
 source = { editable = "." }
 dependencies = [
     { name = "pulp" },
