@@ -1,6 +1,8 @@
 [project]
 name = "badge-groups"
 version = "0"
+description = "TODO"
+readme = "README.md"
 authors = [
     { name = "David Wood", email = "code@dtwood.co.uk" }
 ]
