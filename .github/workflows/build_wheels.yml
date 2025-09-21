@@ -10,6 +10,15 @@ jobs:
 
       - uses: hynek/build-and-inspect-python-package@v2
 
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: hynek/setup-cached-uv@v2
+
+      - run: uv run pytest
+
   attest:
     needs: [dist]
     runs-on: ubuntu-latest
