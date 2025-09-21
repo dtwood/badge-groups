@@ -1,0 +1,17 @@
+[project]
+name = "badge-groups"
+version = "0"
+authors = [
+    { name = "David Wood", email = "code@dtwood.co.uk" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "pulp>=3.3.0",
+]
+
+[project.scripts]
+badge-groups = "badge_groups.assign:main"
+
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
